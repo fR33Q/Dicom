@@ -1,0 +1,43 @@
+﻿<Window x:Class="DicomBrowser.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DicomBrowser"
+        DataContext="{Binding Source={StaticResource Locator}, Path=Main}"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="28*"/>
+            <ColumnDefinition Width="45*"/>
+            <ColumnDefinition Width="125*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="IP:" HorizontalAlignment="Left" Height="30" Margin="10,24,0,0" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbIP" HorizontalAlignment="Left" Height="20" Margin="10,54,0,0" TextWrapping="Wrap" Text="{Binding IP}" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2"/>
+        <Label Content="Port:" HorizontalAlignment="Left" Height="30" Margin="10,86,0,0" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbPort" HorizontalAlignment="Left" Height="20" Margin="10,116,0,0" TextWrapping="Wrap" Text="{Binding Port}" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
+        <Label Content="AET:" HorizontalAlignment="Left" Height="30" Margin="10,156,0,0" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbAET" HorizontalAlignment="Left" Height="20" Margin="10,186,0,0" TextWrapping="Wrap" Text="{Binding AET}" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2" />
+        <Button x:Name="bConnect" Command="{Binding Path=Connect}" Content="POŁĄCZ" HorizontalAlignment="Left" Height="36" Margin="10,240,0,0" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2"/>
+        <Button x:Name="bRefresh" Command="{Binding Path=Refresh}" Content="ODŚWIEŻ" HorizontalAlignment="Left" Height="36" Margin="10,280,0,0" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2"/>
+        <Button x:Name="bImages" Command="{Binding Path=GetImages}" Content="POBIERZ OBRAZY" HorizontalAlignment="Left" Height="36" Margin="10,320,0,0" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2"/>
+        <Button x:Name="bShow" Command="{Binding Path=Show}" Content="POKAZ OBRAZ" HorizontalAlignment="Left" Height="36" Margin="10,360,0,0" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2"/>
+        <DataGrid x:Name="lbPatientsList" ItemsSource="{Binding PatientList, Mode=TwoWay}" SelectedItem="{Binding SelectedPatient, Mode=TwoWay}" AutoGenerateColumns="False" Grid.Column="1" HorizontalAlignment="Left" Height="355" Margin="10,54,0,0" VerticalAlignment="Top" Width="167">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Binding="{Binding}" Header="Patient_ID"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Lista plików" HorizontalAlignment="Left" Height="30" Margin="10,24,0,0" VerticalAlignment="Top" Width="203" Grid.Column="2"/>
+        <DataGrid x:Name="lbImagesList" ItemsSource="{Binding ImageList, Mode=TwoWay}" SelectedItem="{Binding SelectedImage, Mode=TwoWay}" AutoGenerateColumns="False" Grid.Column="2" HorizontalAlignment="Left" Height="355" Margin="10,54,0,0" VerticalAlignment="Top" Width="203">
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="*" Binding="{Binding}" Header="Nazwa pliku"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Lista pacjentów" HorizontalAlignment="Left" Height="30" Margin="11,24,0,0" VerticalAlignment="Top" Width="106" Grid.Column="1"/>
+        <Image Source="{Binding ImageToShow,UpdateSourceTrigger=PropertyChanged}" x:Name="iDicom" Grid.Column="2" HorizontalAlignment="Left" Height="355" Margin="218,54,0,0" VerticalAlignment="Top" Width="272"/>
+        <Label x:Name="lState" Content="{Binding State}" HorizontalAlignment="Left" Height="25" Margin="10,211,0,0" VerticalAlignment="Top" Width="106" Grid.ColumnSpan="2"/>
+
+    </Grid>
+</Window>

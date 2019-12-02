@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.902
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DicomBrowser", "DicomBrowser\DicomBrowser.csproj", "{1EDDE9AB-1E0B-441D-9EBD-090DF7BC0482}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1EDDE9AB-1E0B-441D-9EBD-090DF7BC0482}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EDDE9AB-1E0B-441D-9EBD-090DF7BC0482}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EDDE9AB-1E0B-441D-9EBD-090DF7BC0482}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EDDE9AB-1E0B-441D-9EBD-090DF7BC0482}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AE933925-9B9C-403F-A20D-BE1522105437}
+	EndGlobalSection
+EndGlobal
